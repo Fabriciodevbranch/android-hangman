@@ -127,7 +127,7 @@ public class GameActivity extends AppCompatActivity implements GameController.Ga
     private void buildKeyboard() {
         String[] rows = {"QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"};
         int dpPadding = (int) (4 * getResources().getDisplayMetrics().density);
-        int buttonSize = (int) (40 * getResources().getDisplayMetrics().density);
+        int buttonHeight = (int) (40 * getResources().getDisplayMetrics().density);
 
         for (String row : rows) {
             LinearLayout rowLayout = new LinearLayout(this);
@@ -147,12 +147,12 @@ public class GameActivity extends AppCompatActivity implements GameController.Ga
                 btn.setPadding(0, 0, 0, 0);
                 btn.setInsetTop(0);
                 btn.setInsetBottom(0);
-                btn.setMinWidth(buttonSize);
-                btn.setMinimumWidth(buttonSize);
-                btn.setMinHeight(buttonSize);
-                btn.setMinimumHeight(buttonSize);
+                btn.setMinWidth(0);
+                btn.setMinimumWidth(0);
+                btn.setMinHeight(buttonHeight);
+                btn.setMinimumHeight(buttonHeight);
                 LinearLayout.LayoutParams btnParams = new LinearLayout.LayoutParams(
-                        buttonSize, buttonSize);
+                        0, buttonHeight, 1f);
                 btnParams.setMargins(dpPadding, 0, dpPadding, 0);
                 btn.setLayoutParams(btnParams);
                 btn.setOnClickListener(v -> controller.guessLetter((String) v.getTag()));
